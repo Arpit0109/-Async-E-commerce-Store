@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"  />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  </head>
+      <body class="font-['helvetica_now_display']">
+
+
+    
+  
+    <nav class="w-full flex justify-between px-5 py-3">
+      <div>
+        <h3 class="text-xl">Async</h3>
+      </div>      
+    </nav>
+    <div class="w-full h-screen flex items-start justify-center px-20 py-20">
+    
+      <div class="w-[75%] flex flex-col gap-5 h-screen">
+        <h1 class="text-center"> Click anywhere on the  Product to Update it</h1>
+        <div class="flex items-start flex-wrap gap-5">
+         <% products.forEach(function(product){ %>
+
+          <a href="/owners/UpdateProduct/<%= product._id %>">
+
+             <div class="w-60">
+              <div class="relative w-full h-52 flex items-center justify-center bg-[<%= product.bgcolor %>]">
+                <% if(product.discount > 0) { %>
+                   <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded shadow z-10">
+                      ₹<%= product.discount %> OFF
+                   </span>
+                <% } %>
+              <img
+              class="h-[12rem]"
+              src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+              alt=""
+              />
+            </div>
+
+                <div
+              class="flex justify-between bg-[<%= product.panelcolor %>] items-center px-4 py-4 text-[<%= product.textcolor %>]"
+            >
+              <div>
+                <h3 class="font-semibold"><%= product.name %></h3>
+
+                <% if(product.discount > 0) { %>
+                  <div class="flex items-center gap-2">
+                    <h4 class="line-through text-sm opacity-70">₹<%= product.price %></h4>
+                    <h4 class="text-green-500 font-semibold">
+                      ₹<%= product.price - product.discount %>
+                    </h4>
+                  </div>
+                <% } else { %>
+                  <h4 class="font-semibold">₹<%= product.price %></h4>
+                <% } %>
+
+              </div>
+
+              <a
+                class="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gray-200 transition"
+                href=""
+              >
+                <i class="ri-add-line"></i>
+              </a>
+            </div>
+          </div>
+
+          
+          </a>
+          
+       <% }) %>  
+
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script>
+
+  
+  const moduleSelect = document.querySelector("#module");
+const form = document.querySelector("#myform");
+
+moduleSelect.addEventListener("change", () => {
+  form.submit(); 
+});
+
+
+document.querySelector("#searchForm i").addEventListener("click",()=>{
+  
+       if(document.querySelector("#searchForm input").value.length>0)
+              {
+
+                document.querySelector("#searchForm").submit()
+              }
+      })
+
+  </script>
+</html>
