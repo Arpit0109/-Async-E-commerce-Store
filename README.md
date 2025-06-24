@@ -70,6 +70,13 @@ Async/
 
 ---
 
+## 🙋‍♂️ Author
+**Arpit Patil**  
+[GitHub: Arpit0109](https://github.com/Arpit0109)
+
+---
+
+
 ## 🔧 Installation
 
 1. **Clone the repo**
@@ -92,9 +99,5 @@ node app.js
 Server will be running at: http://localhost:3000
 
 
----
 
 
-## 🙋‍♂️ Author
-**Arpit Patil**  
-[GitHub: Arpit0109](https://github.com/Arpit0109)
