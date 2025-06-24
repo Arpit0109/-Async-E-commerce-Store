@@ -79,7 +79,7 @@ Async/
 
 ## 🔧 Installation
 
-1. **Clone the repo**
+1. Clone the repo
 ```bash
 git clone https://github.com/Arpit0109/-Async-E-commerce-Store.git
 cd async-ecommerce
