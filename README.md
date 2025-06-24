@@ -78,6 +78,7 @@ Async/
 
 
 ## 🔧 Installation
+```bash
 
 1. Clone the repo
 git clone https://github.com/Arpit0109/-Async-E-commerce-Store.git
