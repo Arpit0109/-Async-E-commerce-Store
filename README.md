@@ -4,7 +4,6 @@ Async is a Node.js + Express-based e-commerce web application where users can br
 
 ---
 
-## 🚀 Features
 
 ## 🚀 Features
 
