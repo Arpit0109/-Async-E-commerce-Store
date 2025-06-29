@@ -81,6 +81,11 @@ Async/
 
 ---
 
+🙋‍♂️ Author
+Built by Arpit0109
+
+---
+
 ## 🔧 Installation
 
 1. **Clone the repo**
@@ -102,5 +107,3 @@ NODE_ENV=development
 node app.js
 Server will be running at: http://localhost:3000
 
-🙋‍♂️ Author
-Built by Arpit0109
