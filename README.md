@@ -6,6 +6,8 @@ Async is a Node.js + Express-based e-commerce web application where users can br
 
 ## 🚀 Features
 
+## 🚀 Features
+
 - 👤 User authentication (with session-based login)
 - 🛍️ Product listing, filtering, and search using **Fuse.js**
 - 🛒 Cart system for users
@@ -17,9 +19,12 @@ Async is a Node.js + Express-based e-commerce web application where users can br
   - Uploading product images
 - 📦 Image upload using **Multer**
 - ✨ Flash messages for success and error feedback
+- 📁 MVC project structure
+- 📄 Dedicated **Product Details Page** with styling
+- 🔙 Clean and modern **Back Button** for easy navigation
+
 
 ---
-
 
 ## 📸 Screenshots
 
@@ -33,13 +38,19 @@ Async is a Node.js + Express-based e-commerce web application where users can br
 ![Search Product](ScreenShots/SearchProduct.png)
 
 ### 🏷️ Discounted Product
-![Discounted Product](ScreenShots/DiscountedProduct.png)
+![Discounted Product](ScreenShots/discount.png)
+
+### 🛒 Cart Page
+![Cart Page](ScreenShots/cart.png)
+
+### 📦 Product Details
+![Product Details](ScreenShots/productdetail.png)
 
 ### 🛠️ Create Product (Admin)
-![Create Product](ScreenShots/CreateProduct.png)
+![Create Product](ScreenShots/createpage.png)
 
 ### 🔧 Update Product (Admin)
-![Update Product](ScreenShots/UpdateProduct.png)
+![Update Product](ScreenShots/updatepage.png)
 
 
 ## 📂 Project Structure
@@ -66,21 +77,14 @@ Async/
 - **Authentication**: Express Session + Flash
 - **File Upload**: Multer
 - **Search**: Fuse.js
-- **Styling**: Custom CSS or any frontend framework
+-**Styling**: Tailwind CSS and custom CSS
 
 ---
-
-## 🙋‍♂️ Author
-**Arpit Patil**  
-[GitHub: Arpit0109](https://github.com/Arpit0109)
-
----
-
 
 ## 🔧 Installation
-```bash
 
-1. Clone the repo
+1. **Clone the repo**
+```bash
 git clone https://github.com/Arpit0109/-Async-E-commerce-Store.git
 cd async-ecommerce
 
@@ -98,6 +102,5 @@ NODE_ENV=development
 node app.js
 Server will be running at: http://localhost:3000
 
-
-
-
+🙋‍♂️ Author
+Built by Arpit0109
