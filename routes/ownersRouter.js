@@ -35,7 +35,6 @@ router.get("/admin", (req, res) => {
   res.render("createproducts", { success });
 });
 
-
 router.get("/UpdatePage", async (req, res) => {
   const allProducts = await productModel.find();
 
@@ -43,8 +42,6 @@ router.get("/UpdatePage", async (req, res) => {
     products: allProducts,
   });
 });
-
-
 
 router.get("/UpdateProduct/:productid", async (req, res) => {
   const product = await productModel.findOne({ _id: req.params.productid });
@@ -56,10 +53,16 @@ router.post(
   "/UpdateProduct/:productid",
   upload.single("image"),
   async (req, res) => {
-
-
-    const { name, price, discount, bgcolor, panelcolor, textcolor, type } =
-      req.body;
+    const {
+      name,
+      price,
+      discount,
+      bgcolor,
+      panelcolor,
+      textcolor,
+      type,
+      discription,
+    } = req.body;
 
     const updateData = {
       name,
@@ -69,16 +72,18 @@ router.post(
       panelcolor,
       textcolor,
       type,
+      discription,
     };
     if (req.file) {
       updateData.image = req.file.buffer;
     }
 
     const product = await productModel.findOneAndUpdate(
-      { _id: req.params.productid }, updateData,
+      { _id: req.params.productid },
+      updateData
     );
 
-  res.redirect("/owners/UpdatePage")  
+    res.redirect("/owners/UpdatePage");
   }
 );
 

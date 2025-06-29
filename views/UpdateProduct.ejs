@@ -18,7 +18,7 @@
 
     <div class="min-h-screen flex flex-col">
       <div
-        class="container px-10 py-20 flex flex-grow flex items-center justify-center"
+        class="container px-10 py-5 flex flex-grow flex items-center justify-center"
       >
         <main class="w-3/4 bg-white p-8 shadow ml-4">
           <h2 class="text-xl font-bold mb-4">Update Product</h2>
@@ -63,12 +63,9 @@
                 />
                 <select name="type" id="" class="border rounded-md">
                   <option value="" hidden>select Type</option>
-                  <option value="bag">Bag</option>
-                  <option value="tshirt">Tshirt</option>
-                  <option value="poster">Poster</option>
-                  <option value="<%=product.type %>" selected>
-                    <%=product.type %>
-                  </option>
+                  <option value="bag" <%= product.type ==='bag' ? 'selected': ''%> >Bag</option>
+                  <option value="tshirt" <%= product.type ==='tshirt' ? 'selected': ''%> >Tshirt</option>
+                  <option value="poster" <%= product.type ==='poster' ? 'selected': ''%> >Poster</option>
                 </select>
               </div>
             </div>
@@ -98,6 +95,13 @@
                   value="<%=product.textcolor %>"
                 />
               </div>
+              <textarea
+                class="w-full mt-3 h-32 p-3 border rounded resize-none text-black"
+                name="discription"
+                placeholder="Add description about your product"
+              >
+<%=product.discription %></textarea
+              >
             </div>
             <input
               class="px-5 py-2 rounded mt-3 bg-blue-500 text-white"

@@ -1,7 +1,4 @@
-
-
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
 
 const productScehma = mongoose.Schema({
   image: Buffer,
@@ -15,11 +12,12 @@ const productScehma = mongoose.Schema({
   bgcolor: String,
   panelcolor: String,
   textcolor: String,
-  type:String,
-  date:{
-    type:Date,
-    default:Date.now
-  }
+  type: String,
+  discription: String,
+  date: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("product", productScehma);

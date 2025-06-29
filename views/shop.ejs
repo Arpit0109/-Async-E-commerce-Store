@@ -45,10 +45,10 @@
               <form id="myform" action="/sortedProduct" method="GET">
             <select id="module" name="sortby">
               <option value="" hidden>Select Product</option>
-              <option value="all" <%= selected ==='all' ? 'selected' : '' %> >All</option>
-              <option value="tshirt"<%= selected === 'tshirt' ? 'selected' : '' %> >Tshirt</option>
-              <option value="bag"  <%= selected === 'bag' ? 'selected' : '' %> >Bag</option>
-              <option value="poster"  <%= selected === 'poster' ? 'selected' : '' %> >Poster</option>
+              <option value="all"> All</option>
+              <option value="tshirt"<%= selected === 'tshirt' ? 'selected' : '' %> <%= selected === 'tshirt' ? 'selected' : '' %>> Tshirt</option>
+              <option value="bag"  <%= selected === 'bag' ? 'selected' : '' %>> Bag</option>
+              <option value="poster"  <%= selected === 'poster' ? 'selected' : '' %>>Poster</option>
             </select>
           </form>
 
@@ -62,13 +62,22 @@
         <div class="mt-32">
           <a class="block w-fit mb-2" href="">Filter by :</a>
           <a class="block w-fit mb-2" href="">Availability</a>
-          <a class="block w-fit mb-2" href="">Discount</a>
+             <form class="relative left-[-8px] " id="discountForm" action="/selectDiscount">
+            <select class="" id="discountmodule" name="sortby">
+              <option value="" hidden>Select Discount</option>
+              <option value="50" <%= selected === '50' ? 'selected' : '' %>>₹50 OFF or more </option>
+              <option value="100" <%= selected === '100' ? 'selected' : '' %>>₹100 OFF or more </option>
+              <option value="200" <%= selected === '200' ? 'selected' : '' %>>₹200 OFF or more</option>
+              <option value="500" <%= selected === '500' ? 'selected' : '' %> >₹500 OFF or more </option>
+              <option value="1000" <%= selected === '1000' ? 'selected' : '' %> >₹1000 OFF or more </option>
+            </select>
+          </form>
         </div>
       </div>
       <div class="w-[75%] flex flex-col gap-5 h-screen">
         <div class="flex items-start flex-wrap gap-5">
          <% products.forEach(function(product){ %>
-           <div class="w-60">
+         <a href="/ProductDettails/<%= product._id %>" class="block w-60">
               <div class="relative w-full h-52 flex items-center justify-center bg-[<%= product.bgcolor %>]">
                 <% if(product.discount > 0) { %>
                    <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded shadow z-10">
@@ -102,14 +111,15 @@
                 <!-- <p class="text-xs mt-1 text-gray-400"><%= new Date(product.date).toLocaleDateString('en-IN') %></p> -->
               </div>
 
-              <a
+              <button id="addtocartbtn"
+                type="button"
+                onclick = "handleAddtoCart(event,'<%= product._id %>')"
                 class="w-7 h-7 flex items-center justify-center rounded-full bg-white hover:bg-gray-200 transition"
-                href="/addtocart/<%= product._id %>"
               >
-                <i class="ri-add-line"></i>
-              </a>
+                <i class="ri-add-line text-black"></i>
+              </button>
             </div>
-          </div>
+         </a>
        <% }) %>  
 
         </div>
@@ -128,6 +138,10 @@ moduleSelect.addEventListener("change", () => {
 });
 
 
+document.querySelector("#discountmodule").addEventListener("change", () => {
+  document.querySelector("#discountForm").submit(); 
+});
+
 document.querySelector("#searchForm i").addEventListener("click",()=>{
   
        if(document.querySelector("#searchForm input").value.length>0)
@@ -136,6 +150,16 @@ document.querySelector("#searchForm i").addEventListener("click",()=>{
                 document.querySelector("#searchForm").submit()
               }
       })
+
+
+      document.getElementById("addtocartbtn").addEventListener("click",(e)=>{
+        e.preventDefault()
+      })
+
+      function handleAddtoCart(e,productId){
+        e.preventDefault();
+        window.location.href = `/addtocart/${productId}`
+      }
 
   </script>
 </html>
